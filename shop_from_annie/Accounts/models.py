@@ -29,7 +29,7 @@ class Profile(AbstractUser):
     bio = models.TextField()
 
     USERNAME_FIELD = 'email'
-    REQUIRED_FIELDS = []
+    REQUIRED_FIELDS = ['username','DOB',]
 
     def __str__(self):
         return self.username
