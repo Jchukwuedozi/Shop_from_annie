@@ -19,7 +19,7 @@ class GenderChoice(models.TextChoices):
 
 class Profile(AbstractUser):
     username = models.CharField(max_length=120, unique=True)
-    email = models.EmailField()
+    email = models.EmailField(unique=True)
     first_name = models.CharField(max_length=120)
     last_name = models.CharField(max_length=120)
     gender = models.CharField(max_length=1, choices=GenderChoice)
@@ -29,6 +29,7 @@ class Profile(AbstractUser):
     bio = models.TextField()
 
     USERNAME_FIELD = 'email'
+    REQUIRED_FIELDS = []
 
     def __str__(self):
         return self.username
