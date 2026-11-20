@@ -5,7 +5,12 @@ from .models import Profile
 
 @admin.register(Profile)
 class ProfileAdmin(admin.ModelAdmin):
-    list_display = [field.name for field in Profile._meta.fields]
+    fields = ['username', 'email', 'first_name', 'last_name', 
+              'gender', 'DOB', 'profile_picture',
+              'bio']
+    list_display = ['username', 'email', 'first_name', 'last_name', 
+              'gender', 'DOB', 'profile_picture',
+              'bio', 'date_joined']
     search_fields = ['username', 'email']
 
 
